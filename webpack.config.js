@@ -34,6 +34,8 @@ Encore
     .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
     
+    .enableSingleRuntimeChunk()
+
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
 
@@ -45,7 +47,7 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     .autoProvidejQuery()
-    
+
     .addPlugin(new CopyWebpackPlugin([
         { from: './assets/images', to: 'images' }
     ]))
