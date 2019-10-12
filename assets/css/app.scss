@@ -1,6 +1,19 @@
 @import "~bootstrap/scss/bootstrap";
 
+$titleh1: white;
+
 body {
     background-image: url('/build/images/superheros.png');
-    //background-color: lightgray;
+}
+
+h1 {
+    color: $titleh1;
+}
+
+.mb-3 {
+    color: $titleh1;
+}
+
+text {
+    color: $titleh1;
 }
