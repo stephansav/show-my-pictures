@@ -1,7 +1,11 @@
 var Encore = require('@symfony/webpack-encore');
 var CopyWebpackPlugin = require('copy-webpack-plugin'); // this line tell to webpack to use the plugin
 
+var path = require('path');
+
 Encore
+    //.addAliases({'@images': path.resolve(__dirname, 'public/images')})
+
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path

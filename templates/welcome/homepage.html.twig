@@ -7,6 +7,9 @@
 {% block body %}
     {{ parent() }}
     <h1>Bienvenue sur Show My Picture</h1>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {{ include('include/_menu.html.twig') }}
+    {% endif %}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
