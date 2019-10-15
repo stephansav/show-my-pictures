@@ -4,20 +4,32 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\IsTrue;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
+            ->add('pseudo', TextType::class, [
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a pseudo',
+                    ]),
+                ],
+            ])
+            ->add('dateOfBirth', DateType::class)
+            ->add('email', EmailType::class)
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -34,11 +46,25 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            ->add('description', TextareaType::class, [
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'You must add a description about you!',
+                    ]),
+                    new Length([
+                        'min' => 100,
+                        'minMessage' => 'Please put more about you.',
+                    ]),
+                ],
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'You should agree to our terms: \n
+                        1) You must not use inapropriate uploaded pictures. \n
+                        2) You must be respectfull with all the users of the website. \n
+                        3) It is a good think if you email us and give us ideas for the website',
                     ]),
                 ],
             ])
