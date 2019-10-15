@@ -52,3 +52,8 @@ $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
 */
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+    });
+});
