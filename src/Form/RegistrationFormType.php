@@ -4,10 +4,11 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,22 +28,27 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Please enter a pseudo',
                     ]),
                 ],
+                'label' => 'Pseudonyme',
             ])
-            ->add('dateOfBirth', DateType::class)
-            ->add('email', EmailType::class)
-            ->add('plainPassword', PasswordType::class, [
+            ->add('dateOfBirth', BirthdayType::class, [
+                'label' => 'Your birthday',
+            ])
+            ->add('email', EmailType::class, [
+                'label' => 'Your email',
+            ])
+            ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password fields must match.',
+                'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options' => ['label' => 'Password'],
+                'second_options' => ['label' => 'Repeat Password'],
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
                     ]),
                 ],
             ])
@@ -56,6 +62,7 @@ class RegistrationFormType extends AbstractType
                         'minMessage' => 'Please put more about you.',
                     ]),
                 ],
+                'label' => 'A little description about you',
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -67,6 +74,7 @@ class RegistrationFormType extends AbstractType
                         3) It is a good think if you email us and give us ideas for the website',
                     ]),
                 ],
+                'label' => 'Agree our terms',
             ])
         ;
     }
