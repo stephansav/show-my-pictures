@@ -48,4 +48,23 @@ class WelcomeController extends AbstractController
             'list_comments' => $listComments,
         ]);
     }
+
+    /**
+     * @Route("/goldenbooklist", name="app_allcomments")
+     */
+    public function allComments()
+    {
+        $goldenbook = new Goldenbook();
+        $goldenbook->setName('Write your name');
+        $goldenbook->setComment('Write a comment');
+        $goldenbook->setCommentDate(new \DateTime());
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $goldenBookRepository = $entityManager->getRepository(Goldenbook::class);
+        $listComments = $goldenBookRepository->findAll();
+
+        return $this->render('welcome/allcomments.html.twig', [
+            'list_comments' => $listComments,
+        ]);
+    }
 }

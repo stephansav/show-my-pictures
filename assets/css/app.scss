@@ -2,10 +2,17 @@
 
 $titleh1: white;
 $textcolor: cyan;
+$backgroundColor: purple;
 
 body {
-    background-image: url('/build/images/superheros.png');
-    //background-image: url('~@images/sprite.svg')
+    background-color: $backgroundColor;
+}
+
+//background-image: url('/build/images/superheros.png');
+//background-image: url('~@images/sprite.svg')
+
+.password-field {
+    color: blue;
 }
 
 h1 {
@@ -125,4 +132,9 @@ ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #6d7fcc;
+}
+
+.right_header{
+    color: #fff;
+    float: right;
 }

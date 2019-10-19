@@ -93,6 +93,9 @@
     "doctrine/reflection": {
         "version": "v1.0.0"
     },
+    "egulias/email-validator": {
+        "version": "2.1.11"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -114,6 +117,9 @@
     "psr/log": {
         "version": "1.0.2"
     },
+    "swiftmailer/swiftmailer": {
+        "version": "v6.2.1"
+    },
     "symfony/asset": {
         "version": "v4.1.4"
     },
@@ -134,6 +140,9 @@
             "version": "3.3",
             "ref": "e3868d2f4a5104f19f844fe551099a00c6562527"
         }
+    },
+    "symfony/css-selector": {
+        "version": "v4.3.5"
     },
     "symfony/debug": {
         "version": "v4.1.4"
@@ -180,6 +189,15 @@
             "ref": "87c585d24de9f43bca80ebcfd5cf5cb39445d95f"
         }
     },
+    "symfony/google-mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "da7b29c169c9de4359a75be96d729438129d7d86"
+        }
+    },
     "symfony/http-foundation": {
         "version": "v4.1.4"
     },
@@ -191,6 +209,18 @@
     },
     "symfony/intl": {
         "version": "v4.1.12"
+    },
+    "symfony/mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "6e5921f710bec05533f664e0b9a3d838545edd82"
+        },
+        "files": [
+            "config/packages/mailer.yaml"
+        ]
     },
     "symfony/maker-bundle": {
         "version": "1.0",
@@ -273,6 +303,20 @@
     "symfony/stopwatch": {
         "version": "v4.1.4"
     },
+    "symfony/swiftmailer-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "429afc6c6778a1fdddb52a4f708cd94ff2c9960f"
+        },
+        "files": [
+            "config/packages/dev/swiftmailer.yaml",
+            "config/packages/swiftmailer.yaml",
+            "config/packages/test/swiftmailer.yaml"
+        ]
+    },
     "symfony/translation": {
         "version": "3.3",
         "recipe": {
@@ -336,6 +380,15 @@
     },
     "symfony/yaml": {
         "version": "v4.1.4"
+    },
+    "tijsverkoyen/css-to-inline-styles": {
+        "version": "2.2.1"
+    },
+    "twig/cssinliner-extra": {
+        "version": "v2.12.1"
+    },
+    "twig/extra-bundle": {
+        "version": "v2.12.1"
     },
     "twig/twig": {
         "version": "v2.5.0"

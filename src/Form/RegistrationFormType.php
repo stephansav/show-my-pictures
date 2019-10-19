@@ -68,9 +68,9 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms: \n
-                        1) You must not use inapropriate uploaded pictures. \n
-                        2) You must be respectfull with all the users of the website. \n
+                        'message' => 'You should agree to our terms: 
+                        1) You must not use inapropriate uploaded pictures. 
+                        2) You must be respectfull with all the users of the website. 
                         3) It is a good think if you email us and give us ideas for the website',
                     ]),
                 ],
