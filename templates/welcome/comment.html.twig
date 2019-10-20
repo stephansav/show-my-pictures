@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+{% block title %}You are logged in{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    {% block subbody %}
+        <div>
+            {{ form(form) }}<br><br>
+        </div> 
+        <div>
+        {% for comment in list_comments %}
+            <text>{{ comment.name }}</text><br>
+            <text>{{ comment.comment }}</text><br><br>
+        {% endfor %}
+        </div> 
+    {% endblock %}
+    {% for comment in list_comments %}
+        <text>{{ comment.name }}</text><br>
+        <text>{{ comment.comment }}</text><br><br>
+    {% endfor %} 
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "layout.html.twig" %}
+{% block title %}You are logged in{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    {% block subbody %}
+        <div>
+        {% for comment in list_comments %}
+            <text>Commented on {{ comment.date | date("m/d/Y") }}</text><br>
+            <text>{{ comment.name }}</text><br>
+            <text>{{ comment.comment }}</text><br><br>
+        {% endfor %}
+        </div> 
+    {% endblock %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    
+{% endblock %}
